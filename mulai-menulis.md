@@ -172,19 +172,19 @@ setelah itu, kita akan coba rombak function **sendMessage** menjadi seperti ini
 function sendMessage(event) {
     let sender = event.sender.id;
     let text = event.message.text;
-  
+
     let apiai = aiApp.textRequest(text, {
       sessionId: 'anakjalananbro'
     });
-  
+
     apiai.on('response', (response) => {
       // Response ke Facebook messenger
     });
-  
+
     apiai.on('error', (error) => {
       console.log(error);
     });
-  
+
     apiai.end();
   }
 ```
@@ -202,7 +202,7 @@ let aiText = response.result.fulfillment.speech;
 console.log("response ai %s ", aiText);
 request({
     url: 'https://graph.facebook.com/v2.6/me/messages',
-    qs: {access_token: PAGE_ACCESS_TOKEN},
+    qs: {access_token: ACCESS_TOKEN},
     method: 'POST',
     json: {
         recipient: {id: sender},
