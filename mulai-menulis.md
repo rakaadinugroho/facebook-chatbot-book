@@ -41,5 +41,19 @@ dan jalankan perintah tersebut , sebagia berikut :\)
 $ node apps.js
 ```
 
-kemudian, akses SERVER URLnya.![](/assets/Screen Shot 2017-09-29 at 2.34.04 PM.png)
+kemudian, akses SERVER URLnya.![](/assets/Screen Shot 2017-09-29 at 2.34.04 PM.png)artinya server webhook insyaallah sudah siap digunakan.
+
+selanjutnya buat HTTP Verb \( GET \) untuk webhook untuk dipasang sebagai access token di facebook
+
+```js
+app.get('/webhook', (req, res) => {
+    if (req.query['hub.mode'] && req.query['hub.verify_token'] === VALID_TOKEN) {
+        res.status(200).send(req.query['hub.challenge']);
+    } else {
+        res.status(403).end();
+    }
+});
+```
+
+
 
