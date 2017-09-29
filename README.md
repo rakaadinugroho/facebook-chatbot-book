@@ -28,7 +28,7 @@ intent digunakan untuk mencari maksud dari user \( apa yang ingin dilakukan \) a
 
 setelah itu, save **Intent** yang telah dibuat. lanjutnya, buat Webhook untuk 3rd API nya.
 
-buka **Fulfillment**
+buka **Fulfillment **dan buat **Webhook** yang akan kita buat dengan end-point **http://url.ngrok.io/ai**
 
 
 
