@@ -55,5 +55,31 @@ app.get('/webhook', (req, res) => {
 });
 ```
 
+end-point diatas adalah untuk facebook mengecek webhook service kita sudah sesuai/siap digunakan atau belum
 
+![](/assets/Screen Shot 2017-09-29 at 3.41.26 PM.png)
+
+## Webhook POST
+
+```js
+/* Handling Pesan */
+app.post('/webhook', (req, res) => {
+    //console.log(req.body);
+    if (req.body.object === 'page') {
+      req.body.entry.forEach((entry) => {
+        entry.messaging.forEach((event) => {
+          if (event.message && event.message.text) {
+            //sendMessage(event);
+            console.log(event);
+          }
+        });
+      });
+      res.status(200).end();
+    }
+  });
+```
+
+untuk mengecek apakah saat seorang user mengirimkan pesan, akan diterima oleh webhook.
+
+![](/assets/Screen Shot 2017-09-29 at 3.46.01 PM.png)
 
