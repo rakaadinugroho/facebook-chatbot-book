@@ -83,3 +83,43 @@ untuk mengecek apakah saat seorang user mengirimkan pesan, akan diterima oleh we
 
 ![](/assets/Screen Shot 2017-09-29 at 3.46.01 PM.png)
 
+untuk membuat response nya, kita akan membuat fungsi **sendMessage\(event\). **kira-kira kodenya seperti dibawah:
+
+```js
+function sendMessage(event) {
+    let sender = event.sender.id;
+    let text = event.message.text;
+  
+    /* Test Data */
+    console.log("Dikirim ke %s ", sender);
+
+    request({
+      url: 'https://graph.facebook.com/v2.6/me/messages',
+      qs: {access_token: ACCESS_TOKEN},
+      method: 'POST',
+      json: {
+        recipient: {id: sender},
+        message: {text: text}
+      }
+    }, function (error, response) {
+      if (error) {
+          console.log('Error sending message: ', error);
+      } else if (response.body.error) {
+          console.log('Error: ', response.body.error);
+      }
+    });
+  }
+```
+
+fungsi diatas akan mereply pesan sesuai dengan pesan yang di tuliskan oleh sender.
+
+![](/assets/Screen Shot 2017-09-29 at 3.54.09 PM.png)
+
+untuk nyobain end-point graph lainnya dari facebook, bisa jadi referensi disini
+
+```
+https://developers.facebook.com/tools/explorer
+```
+
+
+
