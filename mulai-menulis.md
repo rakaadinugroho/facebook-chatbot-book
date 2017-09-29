@@ -217,5 +217,7 @@ request({
 });
 ```
 
+kemudian jalan kan lagi appsnya, dan coba chat dengan pages yang telah dibuat menggunakan bahasa inggris
 
+![](/assets/Screen Shot 2017-09-29 at 4.31.06 PM.png)
 
