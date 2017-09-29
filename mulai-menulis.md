@@ -166,5 +166,56 @@ const API_TOKEN = "39e70b551e0140d5bd9debf1b022e2b0";
 const aiApp    = require('apiai')(API_TOKEN);
 ```
 
+setelah itu, kita akan coba rombak function **sendMessage** menjadi seperti ini
+
+```
+function sendMessage(event) {
+    let sender = event.sender.id;
+    let text = event.message.text;
+  
+    let apiai = aiApp.textRequest(text, {
+      sessionId: 'anakjalananbro'
+    });
+  
+    apiai.on('response', (response) => {
+      // Response ke Facebook messenger
+    });
+  
+    apiai.on('error', (error) => {
+      console.log(error);
+    });
+  
+    apiai.end();
+  }
+```
+
+pada bagian komentar **// Response ke facebook messenger** kita akan mengambil response dari **API.ai** tersebut, dengan skema Response \( JSON \) seperti gambar diatas.
+
+```
+let aiText = response.result.fulfillment.speech;
+```
+
+tambahkan di respnse apiai.on response dengan kode ini
+
+```
+let aiText = response.result.fulfillment.speech;
+console.log("response ai %s ", aiText);
+request({
+    url: 'https://graph.facebook.com/v2.6/me/messages',
+    qs: {access_token: PAGE_ACCESS_TOKEN},
+    method: 'POST',
+    json: {
+        recipient: {id: sender},
+        message: {text: aiText}
+    }
+}, (error, response) => {
+    if (error) {
+        console.log('Error sending message: ', error);
+    } else if (response.body.error) {
+        console.log('Error: ', response.body.error);
+    }
+});
+```
+
 
 
