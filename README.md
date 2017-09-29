@@ -8,5 +8,5 @@ Tools yang diperlukan:
 * NgRok Server
 * Code Editor \( Terserah\)
 
-![](/assets/Screen Shot 2017-09-29 at 3.54.09 PM.png)
+![](/assets/Screen Shot 2017-09-29 at 4.31.06 PM.png)
 
