@@ -83,7 +83,19 @@ untuk mengecek apakah saat seorang user mengirimkan pesan, akan diterima oleh we
 
 ![](/assets/Screen Shot 2017-09-29 at 3.46.01 PM.png)
 
-untuk membuat response nya, kita akan membuat fungsi **sendMessage\(event\). **kira-kira kodenya seperti dibawah:
+untuk membuat response nya, kita akan membuat fungsi **sendMessage\(event\). **pertama import dulu nih module menjalankan request.
+
+```
+npm install request --save
+```
+
+dan tambahkan kode dibawah ini, di baris deklarasi konstanta:
+
+```
+const request = require('request');
+```
+
+lanjut, buatlah fungsi **sendMessage , **kira-kira kodenya seperti dibawah:
 
 ```js
 function sendMessage(event) {
@@ -130,4 +142,29 @@ https://console.api.ai
 ```
 
 register dan buatlah **agent** baru, isi saja nama agentnya \( yang lain biarkan default \)
+
+setelah itu, buat/aktifkan **SmartTalk** untuk kasus ~~salah beli ~~chatBot yang tidak kaku, bisa juga ditest untuk responsenya seperti apa ? \(belum support indonesian\)
+
+![](/assets/Screen Shot 2017-09-29 at 4.09.01 PM.png)
+
+setelah itu, install module API AI untuk NodeJs
+
+```
+npm install apiai
+```
+
+referensinya ada disini
+
+```
+https://www.npmjs.com/package/apiai
+```
+
+import module API AInya kedalam **apps.js**
+
+```
+const API_TOKEN = "39e70b551e0140d5bd9debf1b022e2b0";
+const aiApp    = require('apiai')(API_TOKEN);
+```
+
+
 
