@@ -89,7 +89,7 @@ untuk membuat response nya, kita akan membuat fungsi **sendMessage\(event\). **k
 function sendMessage(event) {
     let sender = event.sender.id;
     let text = event.message.text;
-  
+
     /* Test Data */
     console.log("Dikirim ke %s ", sender);
 
@@ -121,5 +121,13 @@ untuk nyobain end-point graph lainnya dari facebook, bisa jadi referensi disini
 https://developers.facebook.com/tools/explorer
 ```
 
+## Setup API.ai
 
+yah! kali ini penjelasannya menggunakan api.ai, next time saya tulis versi wit.ai **:v :v :v \(**yang paham pasti ngakak**\)**
+
+```
+https://console.api.ai
+```
+
+register dan buatlah **agent** baru, isi saja nama agentnya \( yang lain biarkan default \)
 
